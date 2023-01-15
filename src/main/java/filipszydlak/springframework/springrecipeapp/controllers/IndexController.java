@@ -7,12 +7,13 @@ import filipszydlak.springframework.springrecipeapp.repositories.CategoryReposit
 import filipszydlak.springframework.springrecipeapp.repositories.RecipeRepository;
 import filipszydlak.springframework.springrecipeapp.repositories.UnitOfMeasureRepository;
 import filipszydlak.springframework.springrecipeapp.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
-
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -24,6 +25,7 @@ public class IndexController {
 
     @RequestMapping({"","/", "index"})
     public String getIndexPage(Model model){
+        log.debug("Getting Index page");
 
         model.addAttribute("recipes", recipeService.getRecipes());
 
